@@ -1,0 +1,25 @@
+{% extends 'media_gallery/base.html'%}
+{% load static %}
+
+{% block title %}
+Bincom player - Movies
+{% endblock %}
+
+{% block body %}
+{% if datas %}
+<div class="video-container">
+{% for data in datas %}
+<div class="videos">
+  <video controls class="video-card">
+    <source src="{{data.video_file.url}}" type="video/webm" >
+  Your browser does not support the video tag.
+  </video>
+  <p class="video-title">{{data.video_title}}</p>
+</div>
+{% endfor %}
+</div>
+{% else %}
+<p>no such table</p>
+{% endif %}
+
+{% endblock %}

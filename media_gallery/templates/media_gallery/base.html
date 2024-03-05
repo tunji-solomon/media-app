@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+  <script src="{% static 'gallery.js' %}"></script>
+  <title>
+    {%block title%}{% endblock%}
+  </title>
+</head>
+<body>
+  <div class="nav-bar">
+    <div class="logo">Bincom~player</div>
+    <div class="nav-bar-elem-container">
+        <div class="nav-bar-elem">home</div>
+        <div class="nav-bar-elem">movies</div>
+        <div class="nav-bar-elem">music</div>
+        <div class="nav-bar-elem">pictures</div>
+    </div>
+  </div>
+  {% block body %}{% endblock %}
+
+  <script>
+   const Elem = document.querySelectorAll('.nav-bar-elem')
+   Elem.forEach((element)=> {
+  if (element.innerHTML === 'music'){
+    element.onclick = () => {
+      location.href=`{% url 'music' %}`;
+    };
+  }else if (element.innerHTML === 'pictures'){
+    element.onclick = () => {
+      console.log(element.innerHTML);
+      location.href=`{% url 'pictures' %}`;
+    };
+  }else if (element.innerHTML === 'home'){
+    element.onclick = () => {
+      location.href=`{% url 'index' %}`;
+    };
+  }else if (element.innerHTML === 'movies'){
+    element.onclick = () => {
+      location.href=`{% url 'movies' %}`;
+    };
+}})
+  </script>
+
+
+
+</body>
+</html>

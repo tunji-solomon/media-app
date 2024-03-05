@@ -1,0 +1,55 @@
+{% extends 'media_gallery/base.html' %}
+{% load static %}
+{% block title %}
+Bincom player - Homepage
+{% endblock %}
+
+{% block body %}
+
+<div class="header">
+  <img src="{% static 'photos/bg.webp' %}" class="img-theme" alt="">
+  <div class="dark-theme"></div>
+  <h1 id="header-picture">Enjoy loads of trending music</h1>
+  <p id="header-music">and amazing pictures</p>
+</div>
+  <div class="line-container">
+    <h1 class="nt">Media gallery</h1>
+  </div>
+  {% if datas %}
+  <div class="gallery-card">
+  {% for data in datas%}
+    <div class="card">
+      <img src="{{data.image.url}}" alt="" class="img" >
+      <div class="dark-theme {{data.category}} "></div>
+      <div class="title-container">
+        <p class="title">{{data.category}}</p>
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+
+  {% endif %}
+
+  <script>
+      let btnElem = document.querySelectorAll('.dark-theme');
+      btnElem.forEach((element) => {
+    if(element.classList.contains('Pictures')){
+      element.onclick = () =>{
+        console.log(element);
+        location.href=`{% url 'pictures' %}`;
+        console.log(element.innerHTML)
+      }
+    }else if (element.classList.contains('Music')){
+      element.onclick = () =>{
+      location.href=`{% url 'music' %}`;
+
+    };
+  }else if (element.classList.contains('Movies')){
+      element.onclick = () =>{
+      location.href=`{% url 'movies' %}`;
+      }
+}})
+
+  </script>
+
+  {% endblock %}

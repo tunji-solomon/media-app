@@ -1,0 +1,51 @@
+{% extends 'media_gallery/base.html' %}
+{% load static %}
+
+{% block title %}
+Bincom player - Pictures
+{% endblock %}
+
+{% block body %}
+<h1 class="picture-msg">Check out our beautiful pictures</h1>
+  {% if datas %}
+  <div class="pop-up-main-container">
+    {% for data in datas%}
+      <img src="{{data.image.url}}" alt="" class="picture-card {{data.image.url}} " onclick="
+      document.body.classList.add('dark-bg');
+       document.querySelector('.picture-card').classList.add('picture-card-hidden');
+       document.querySelector('.pop-up-container').classList.add('visibility');
+       document.querySelector('.close-pop-up').classList.add('visibility');
+       let imgurl = classList[1]
+       document.querySelector('.pop-up-container').style.backgroundImage = `url('${imgurl}')`;
+
+
+
+
+      ">
+    {% endfor %}
+    <div class="pop-up-container"></div>
+    <button class="close-pop-up" onclick="
+    document.body.classList.remove('dark-bg')
+       document.querySelector('.picture-card').classList.remove('picture-card-hidden');
+       document.querySelector('.pop-up-container').classList.remove('visibility');
+       document.querySelector('.close-pop-up').classList.remove('visibility');
+    ">
+    X
+  </button>
+
+</div>
+  {% endif %}
+
+{% endblock %}
+
+<!-- <script>
+  let popElem = document.querySelectorAll('.picture-card');
+  popElem.forEach((element) => {
+    element.onclick = () => {
+      let url = element.classList[1];
+      console.log(url)
+    }
+
+  })
+</script> -->
+  

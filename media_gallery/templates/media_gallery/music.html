@@ -1,0 +1,30 @@
+{% extends 'media_gallery/base.html' %}
+{% load static %}
+
+{% block title %}
+Bincom player - Music
+{% endblock %}
+
+{% block body %}
+  <h1 class="music-header">Check out our amazing musics</h1>
+  {% if datas %}
+  <div class="music-card">
+    {% for data in datas%}
+    <div class="music-container">
+      <div class="track-card">
+        <img src="{{data.image.url}}">
+      </div>
+      <p class="music-title">{{data.music_title}}</p>
+      <audio controls class="audio">
+        <source src="{{data.audio_file.url}}" type="audio/mpeg">
+      </audio>
+      </div>
+    {% endfor %}
+  </div>
+
+    
+  {% endif %}
+
+  {% endblock %}
+
+
