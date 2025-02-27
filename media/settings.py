@@ -91,8 +91,10 @@ DATABASES = {
 }
 }
 
-# import dj_database_url
-DATABASES['default'] = dj_database_url.parse('postgresql://mydatabase_0vou_user:pzCR3ZMGEusExuoRfs7W4kozTBfvKKXq@dpg-cv091a1u0jms73fb49bg-a/mydatabase_0vou')
+import dj_database_url
+database_url = os.environ.get('DATABASE_URL')
+DATABASES['default'] = dj_database_url.parse(database_url)
+# DATABASES['default'] = dj_database_url.parse('postgresql://mydatabase_0vou_user:pzCR3ZMGEusExuoRfs7W4kozTBfvKKXq@dpg-cv091a1u0jms73fb49bg-a/mydatabase_0vou')
 
 # postgres://:DiozewiEnTFlOYdSWre5f7sbtEcMw4Le@
 
