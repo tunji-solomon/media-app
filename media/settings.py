@@ -92,7 +92,7 @@ DATABASES = {
 }
 
 # import dj_database_url
-# DATABASES['default'] = dj_database_url.parse('postgres://mydatabase_2k8m_user:DiozewiEnTFlOYdSWre5f7sbtEcMw4Le@dpg-cmlb02mn7f5s73bn4smg-a.oregon-postgres.render.com/mydatabase_2k8m')
+DATABASES['default'] = dj_database_url.parse('postgresql://mydatabase_0vou_user:pzCR3ZMGEusExuoRfs7W4kozTBfvKKXq@dpg-cv091a1u0jms73fb49bg-a/mydatabase_0vou')
 
 # postgres://:DiozewiEnTFlOYdSWre5f7sbtEcMw4Le@
 
